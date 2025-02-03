@@ -1,0 +1,1186 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("./assets/img/background.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+  color: white;
+  box-sizing: border-box;
+}
+
+body {
+  animation: backgroundAnimation 15s infinite alternate;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Contenedores principales */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 35px;
+  padding-bottom: 15px;
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  border-radius: 20px;
+  animation: fadeIn 0.6s ease-out;
+  transition: top 0.2s ease, transform 0.3s ease;
+  text-align: center;
+}
+
+.form-container:hover {
+  top: 8px;
+}
+
+/* Logo */
+#logologin {
+  max-width: 250px;
+  margin-bottom: 8x;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-radius: 15px;
+  filter: brightness(1);
+}
+
+#logologin:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* Estilos del formulario */
+.form-login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Campos de entrada */
+.input-group label {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.input-group input {
+  width: 95%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #9C27B0;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+/* Botón de inicio de sesión */
+#passwordbutton {
+  background-color: #9C27B0;
+  color: white;
+  padding: 10px 50px;
+  width: auto;
+  max-width: 220px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+  text-transform: uppercase;
+  display: block;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+#passwordbutton:hover {
+  background-color: #9C27B0;
+  transform: scale(1.05);
+}
+
+#passwordbutton:active {
+  transform: scale(1);
+}
+
+/* Botón de inicio de Google */
+#google-login-button {
+  background-color: #4285f4;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  box-shadow: 0 4px 8px rgba(66, 133, 244, 0.3);
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+#google-login-button:hover {
+  background-color: #3367d6;
+  transform: scale(1.05);
+}
+
+#google-login-button:active {
+  transform: scale(1);
+}
+
+#google-login-button svg {
+  margin-right: 8px;
+}
+
+#logo-google-icon {
+  width: 35px;
+  margin-right: 10px;
+  border-radius: 25px;
+}
+
+/* Mensaje de error */
+.danger {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+  animation: slideUp 0.4s ease-out;
+  line-height: 1.5;
+}
+
+/* Barra lateral */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  height: 100%;
+  width: 300px;
+  background-color: white;
+  color: #333;
+  transition: left 0.3s ease-in-out;
+  padding-top: 60px;
+  z-index: 1000;
+  box-shadow: 10px 0 8px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  padding-bottom: 50px;
+}
+
+.sidebar.show {
+  left: 0;
+}
+
+.sidebar .menu-item {
+  color: #333;
+  background-color: #fff;
+  padding: 18px 22px;
+  margin-top: 20px;
+  margin-left: 25px;
+  text-align: left;
+  width: 80%;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s ease;
+}
+
+.sidebar .menu-item:hover {
+  background-color: #4b4b4b;
+  color: white;
+  transform: translateX(5px);
+}
+
+/* Icono de la barra lateral */
+.show-sidebar-button {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  font-size: 28px;
+  background-color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  z-index: 2000;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.show-sidebar-button:hover {
+  color: #9C27B0;
+  transform: rotate(180deg);
+  background-color: #ececec;
+}
+
+.logo-slidebar {
+  margin-left: 18%;
+  width: 180px;
+}
+
+/* Nombre del usuario */
+.sidebar p {
+  text-align: center;
+  font-size: 15px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Tarjeta principal */
+.homepage-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 5px 5px 15px rgb(0, 0, 0);
+  padding: 15px;
+  margin-left: 100px;
+  width: calc(100% - 200px);
+}
+
+.homepage-card:hover {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+}
+
+/* Fecha */
+.current-date {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  text-align: left;
+  margin-left: 16px;
+}
+
+.current-date:hover {
+  transition: transform 0.2s ease, color 0.3s ease;
+  color: #9C27B0;
+}
+
+/* Botón para crear tabla */
+.create-table-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  font-weight: bold;
+  margin-left: 16px;
+}
+
+.create-table-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.create-table-button:active {
+  transform: scale(1);
+}
+
+.title-page {
+  color: #000000;
+  text-align: center;
+  margin-bottom: -50px;
+}
+
+/* Tabla */
+.table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 15px;
+  background-color: #f9f9f9;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border-top: 3px solid #000000;
+  animation: fadeIn 1s ease-out;
+  display: block;
+  margin: 0;
+  margin-top: 15px;
+  overflow-y: auto;
+  max-height: 700px;
+}
+
+.table-container table {
+  min-width: 700px;
+  width: auto;
+  border-collapse: collapse;
+  font-size: 38px; /* Aumenté el tamaño de la fuente aún más */
+  border-radius: 8px;
+  table-layout: fixed;
+}
+
+th,
+td {
+  padding: 8px 6px;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+th {
+  background-color: #9C27B0;
+  color: white;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+}
+
+td {
+  padding: 6px;
+  text-align: left;
+  background-color: #f9f9f9;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+  color: #000000;
+  font-size: 15px;
+}
+
+td input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #f9f9f9;
+  font-size: 12px;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+td input:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.3);
+  outline: none;
+}
+
+td input:invalid {
+  border-color: #dc3545;
+}
+
+select {
+  width: 100%;
+  padding: 9px;
+  border: 1px solid #f9f9f9;
+  background-color: #f9f9f9;
+  font-size: 12px;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+select:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.3);
+  outline: none;
+}
+
+option {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #9C27B0;
+  border-radius: 6px;
+  background-color: #fff;
+  font-size: 12px;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+tr.efectivo td {
+  background-color: #8e44ad;
+}
+
+tr.cancelado td {
+  background-color: #e74c3c;
+}
+
+tr.credito td {
+  background-color: #2ecc71;
+}
+
+/* Estilos adicionales si es necesario */
+table.service-table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+table.service-table input,
+table.service-table select {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+/* Styles for the filters container */
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+}
+
+/* Styles for the filter button */
+.filter-button {
+  background-color: #9C27B0;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.filter-button:hover {
+  background-color: #9C27B0;
+  transform: scale(1.05);
+}
+
+/* Styles for the datepicker container */
+.datepicker-container {
+  position: relative;
+}
+
+.calendar-input {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #fff;
+  width: 150px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the dropdown */
+.dropdown {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #495057;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.dropdown:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Option styles */
+.dropdown option {
+  color: #495057;
+  background-color: #fff;
+}
+
+.tdth-table {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Estilo para los botones */
+button.delete-button {
+  background-color: #ff6347;
+  color: #fff;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 15px;
+  border: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button.delete-button:hover {
+  background-color: #ff3300;
+}
+
+#delete-button-fechas {
+  margin-left: 6%;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+.delete-button:active {
+  background-color: #bd2130;
+  transform: scale(1);
+}
+
+.p-text {
+  color: #000000;
+  user-select: none;
+  cursor: no-drop;
+}
+
+/* 📱 Estilos para móviles en modo vertical */
+@media (max-width: 480px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    overflow-x: hidden; /* Evita el desbordamiento lateral */
+  }
+
+  .homepage-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 5px 5px 15px rgb(0, 0, 0);
+    padding: 10px;
+    margin: 20px auto;
+    width: 95%;
+    max-height: 500px;
+    max-width: 350px;
+    transition: margin-left 0.3s ease-in-out, box-shadow 0.3s ease;
+    animation: fadeIn 1s ease-out;
+    overflow: hidden; /* Evita que el contenido se desborde */
+  }
+
+  /* Fecha */
+  .current-date {
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    text-align: left;
+    margin-left: 16px;
+    margin-top: 10px;
+  }
+
+  .current-date:hover {
+    transition: transform 0.2s ease, color 0.3s ease;
+    color: #9C27B0;
+  }
+
+  .title-page {
+    color: #000000;
+    text-align: center;
+    margin-bottom: -50px;
+    margin-left: 100px;
+    font-size: 20px;
+  }
+
+  .create-table-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    margin-top: 5px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    font-weight: bold;
+    margin-left: 16px;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    overflow-y: auto;
+    touch-action: auto;
+    max-width: 100%;
+    margin: auto;
+  }
+
+  .table-container table {
+    border-collapse: collapse;
+    border-radius: 8px;
+    table-layout: fixed;
+  }
+  
+  th {
+    background-color: #9C27B0;
+    color: white;
+    padding: 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  td {
+    padding: 0px;
+    text-align: left;
+    background-color: #f9f9f9;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+    color: #000000;
+  }
+  
+  td input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #f9f9f9;
+    font-size: 11px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  td input:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.3);
+    outline: none;
+  }
+  
+  td input:invalid {
+    border-color: #dc3545;
+  }
+  
+  select {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #f9f9f9;
+    background-color: #f9f9f9;
+    font-size: 10px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  select:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.3);
+    outline: none;
+  }
+  
+  option {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #9C27B0;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 10px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  tr.efectivo td {
+    background-color: #8e44ad;
+  }
+  
+  tr.cancelado td {
+    background-color: #e74c3c;
+  }
+  
+  tr.credito td {
+    background-color: #2ecc71;
+  }
+}
+/* 📱 Estilos para móviles en modo horizontal (landscape) */
+@media (max-width: 1000px) and (orientation: landscape) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    overflow-y: auto; /* Permite el scroll vertical */
+    overflow-x: hidden; /* Evita el desbordamiento lateral */
+    scroll-behavior: smooth; /* Hace que el desplazamiento sea más suave */
+    height: 100vh; /* Asegura que el contenido no quede fijo en la pantalla */
+  }
+
+  .homepage-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 5px 5px 15px rgb(0, 0, 0);
+    padding: 10px;
+    margin: 20px auto;
+    width: 95%;
+    max-width: 600px; 
+    max-height: none; /* Eliminamos la restricción de altura para que el contenido pueda expandirse */
+    transition: margin-left 0.3s ease-in-out, box-shadow 0.3s ease;
+    animation: fadeIn 1s ease-out;
+    overflow: visible; /* Permitimos que el contenido interno crezca si es necesario */
+  }
+
+  .table-container {
+    overflow-x: auto;
+    overflow-y: visible; /* Permitimos que el contenido crezca verticalmente */
+    touch-action: manipulation; /* Mejora la interacción táctil para scroll */
+    max-width: 100%;
+    margin: auto;
+  }
+
+  /* Manteniendo los demás estilos iguales */
+  .current-date {
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    text-align: left;
+    margin-left: 16px;
+    margin-top: 10px;
+  }
+
+  .current-date:hover {
+    transition: transform 0.2s ease, color 0.3s ease;
+    color: #9C27B0;
+  }
+
+  .title-page {
+    color: #000000;
+    text-align: center;
+    margin-bottom: -50px;
+    margin-left: 0; 
+    font-size: 20px;
+  }
+
+  .create-table-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    margin-top: 5px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    font-weight: bold;
+    margin-left: 16px;
+  }
+
+  .table-container table {
+    border-collapse: collapse;
+    border-radius: 8px;
+    table-layout: fixed;
+  }
+  
+  th {
+    background-color: #9C27B0;
+    color: white;
+    padding: 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  td {
+    padding: 0px;
+    text-align: left;
+    background-color: #f9f9f9;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+    color: #000000;
+  }
+  
+  td input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #f9f9f9;
+    font-size: 11px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  td input:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.3);
+    outline: none;
+  }
+  
+  td input:invalid {
+    border-color: #dc3545;
+  }
+  
+  select {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #f9f9f9;
+    background-color: #f9f9f9;
+    font-size: 10px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  select:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.3);
+    outline: none;
+  }
+  
+  option {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #9C27B0;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 10px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  tr.efectivo td {
+    background-color: #8e44ad;
+  }
+  
+  tr.cancelado td {
+    background-color: #e74c3c;
+  }
+  
+  tr.credito td {
+    background-color: #2ecc71;
+  }
+}
+
+
+
+
+/*///////////////////////////////////////////////////////////
+
+
+
+/* Paleta de colores Púrpura aplicada */
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #F3E5F5; /* Purple 50 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("./assets/img/background.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+  color: #4A148C; /* Purple 900 */
+  box-sizing: border-box;
+}
+
+body {
+  animation: backgroundAnimation 15s infinite alternate;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Contenedores principales */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 35px;
+  padding-bottom: 15px;
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  top: 0;
+  border-radius: 20px;
+  animation: fadeIn 0.6s ease-out;
+  transition: top 0.2s ease, transform 0.3s ease;
+  text-align: center;
+}
+
+.form-container:hover {
+  top: 8px;
+}
+
+/* Logo */
+#logologin {
+  max-width: 250px;
+  margin-bottom: 8px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-radius: 15px;
+  filter: brightness(1);
+}
+
+#logologin:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* Estilos del formulario */
+.form-login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Campos de entrada */
+.input-group label {
+  font-size: 14px;
+  color: #6A1B9A; /* Purple 800 */
+  margin-bottom: 8px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.input-group input {
+  width: 95%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #E1BEE7; /* Purple 100 */
+  font-size: 14px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #9C27B0; /* Purple 500 */
+  outline: none;
+  box-shadow: 0 0 8px rgba(156, 39, 176, 0.5);
+}
+
+/* Botón de inicio de sesión */
+#passwordbutton {
+  background-color: #8E24AA; /* Purple 600 */
+  color: white;
+  padding: 10px 50px;
+  width: auto;
+  max-width: 220px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  box-shadow: 0 4px 8px rgba(142, 36, 170, 0.3);
+  text-transform: uppercase;
+  display: block;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+#passwordbutton:hover {
+  background-color: #7B1FA2; /* Purple 700 */
+  transform: scale(1.05);
+}
+
+#passwordbutton:active {
+  transform: scale(1);
+}
+
+/* Botón de inicio de Google */
+#google-login-button {
+  background-color: #4285f4;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  box-shadow: 0 4px 8px rgba(66, 133, 244, 0.3);
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+#google-login-button:hover {
+  background-color: #3367d6;
+  transform: scale(1.05);
+}
+
+#google-login-button:active {
+  transform: scale(1);
+}
+
+#google-login-button svg {
+  margin-right: 8px;
+}
+
+#logo-google-icon {
+  width: 35px;
+  margin-right: 10px;
+  border-radius: 25px;
+}
+
+/* Mensaje de error */
+.danger {
+  color: #E040FB; /* Purple A200 */
+  font-size: 14px;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+  animation: slideUp 0.4s ease-out;
+  line-height: 1.5;
+}
+
+/* Barra lateral */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  height: 100%;
+  width: 300px;
+  background-color: #CE93D8; /* Purple 200 */
+  color: #4A148C; /* Purple 900 */
+  transition: left 0.3s ease-in-out;
+  padding-top: 60px;
+  z-index: 1000;
+  box-shadow: 10px 0 8px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  padding-bottom: 50px;
+}
+
+.sidebar.show {
+  left: 0;
+}
+
+.sidebar .menu-item {
+  color: #4A148C; /* Purple 900 */
+  background-color: #ffffff; /* Purple 100 */
+  padding: 18px 22px;
+  margin-top: 20px;
+  margin-left: 25px;
+  text-align: left;
+  width: 80%;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s ease;
+}
+
+.sidebar .menu-item:hover {
+  background-color: #7B1FA2; /* Purple 700 */
+  color: white;
+  transform: translateX(5px);
+}
+
+/* Icono de la barra lateral */
+.show-sidebar-button {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  font-size: 28px;
+  background-color: #EDE7F6; /* Light Purple Background */
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  z-index: 2000;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.show-sidebar-button:hover {
+  color: #9C27B0; /* Purple 500 */
+  transform: rotate(180deg);
+  background-color: #D1C4E9; /* Purple Light */
+}
+
+/* Fecha */
+.current-date {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000; /* Purple 800 */
+  text-align: left;
+  margin-left: 16px;
+}
+
+.current-date:hover {
+  transition: transform 0.2s ease, color 0.3s ease;
+  color: #7B1FA2; /* Purple A200 */
+}
+
+/* Botón para crear tabla */
+.create-table-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  font-weight: bold;
+  margin-left: 16px;
+}
+
+.create-table-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.create-table-button:active {
+  transform: scale(1);
+}
+
+/* Tabla */
+.table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 15px;
+  background-color: #F3E5F5; /* Purple 50 */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border-top: 3px solid #7B1FA2; /* Purple 700 */
+  animation: fadeIn 1s ease-out;
+  display: block;
+  margin: 0;
+  margin-top: 15px;
+  overflow-y: auto;
+  max-height: 700px;
+}
+
+th {
+  background-color: #9C27B0; /* Purple 500 */
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+}
+
+td {
+  padding: 6px;
+  text-align: left;
+  background-color: #EDE7F6; /* Purple Light */
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+  color: #4A148C; /* Purple 900 */
+  font-size: 15px;
+}
+
+tr.efectivo td {
+  background-color: #8E24AA; /* Purple 600 */
+}
+
+tr.cancelado td {
+  background-color: #E74C3C;
+}
+
+tr.credito td {
+  background-color: #2ECC71;
+}
+
+.option {
+  border: 2px solid #9C27B0; /* Purple 500 */
+  background-color: #F3E5F5; /* Purple 50 */
+}
