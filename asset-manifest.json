@@ -1,18 +1,24 @@
 {
   "files": {
-    "main.css": "/CrossArubaTours/static/css/main.adc2da19.css",
-    "main.js": "/CrossArubaTours/static/js/main.ca52716a.js",
+    "main.css": "/CrossArubaTours/static/css/main.07755035.css",
+    "main.js": "/CrossArubaTours/static/js/main.255b5459.js",
+    "static/js/213.d45935f4.chunk.js": "/CrossArubaTours/static/js/213.d45935f4.chunk.js",
+    "static/js/732.a2ae8a3f.chunk.js": "/CrossArubaTours/static/js/732.a2ae8a3f.chunk.js",
     "static/media/logo.jpg": "/CrossArubaTours/static/media/logo.d74c3220fc9bc8f88d72.jpg",
     "static/media/background.png": "/CrossArubaTours/static/media/background.a60edfbae1eeeb83c421.png",
+    "static/media/iconeye.jpg": "/CrossArubaTours/static/media/iconeye.ad44a731dd56d3309e79.jpg",
     "static/media/CentraNo2-Bold.ttf": "/CrossArubaTours/static/media/CentraNo2-Bold.2faff7f7d3fc92a2fcd9.ttf",
     "static/media/CentraNo2-Medium.ttf": "/CrossArubaTours/static/media/CentraNo2-Medium.f94be5b326d78bb32b95.ttf",
     "static/media/CentraNo2-Book.ttf": "/CrossArubaTours/static/media/CentraNo2-Book.2b143fa4b734a3584043.ttf",
+    "static/media/logotipo.jpg": "/CrossArubaTours/static/media/logotipo.78e2f66643fb2a5a2978.jpg",
     "index.html": "/CrossArubaTours/index.html",
-    "main.adc2da19.css.map": "/CrossArubaTours/static/css/main.adc2da19.css.map",
-    "main.ca52716a.js.map": "/CrossArubaTours/static/js/main.ca52716a.js.map"
+    "main.07755035.css.map": "/CrossArubaTours/static/css/main.07755035.css.map",
+    "main.255b5459.js.map": "/CrossArubaTours/static/js/main.255b5459.js.map",
+    "213.d45935f4.chunk.js.map": "/CrossArubaTours/static/js/213.d45935f4.chunk.js.map",
+    "732.a2ae8a3f.chunk.js.map": "/CrossArubaTours/static/js/732.a2ae8a3f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.adc2da19.css",
-    "static/js/main.ca52716a.js"
+    "static/css/main.07755035.css",
+    "static/js/main.255b5459.js"
   ]
 }
