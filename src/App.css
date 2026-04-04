@@ -1,0 +1,1417 @@
+body {
+  font-family: "CentraNo2", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("./assets/img/background.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+  color: #4a148c;
+  box-sizing: border-box;
+}
+
+body {
+  animation: backgroundAnimation 15s infinite alternate;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Contenedores principales */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 245, 250, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  padding: 45px 40px;
+  max-width: 420px;
+  width: 100%;
+  position: relative;
+  border-radius: 24px;
+  animation: fadeIn 0.6s ease-out;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(142, 36, 170, 0.25), 0 0 1px rgba(142, 36, 170, 0.1);
+  border: 1px solid rgba(156, 39, 176, 0.1);
+}
+
+.form-container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 80px rgba(142, 36, 170, 0.35), 0 0 1px rgba(142, 36, 176, 0.2);
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 35px 25px;
+    margin: 20px;
+    border-radius: 16px;
+  }
+}
+
+/* Logo */
+#logologin {
+  max-width: 200px;
+  margin-bottom: 20px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 16px;
+  filter: brightness(1) drop-shadow(0 4px 12px rgba(142, 36, 170, 0.15));
+  position: relative;
+}
+
+#logologin:hover {
+  transform: scale(1.08) translateY(-4px);
+  filter: brightness(1.1) drop-shadow(0 8px 20px rgba(142, 36, 170, 0.25));
+}
+
+/* Estilos del formulario */
+.form-login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.input-group {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Campos de entrada */
+.input-group label {
+  font-size: 13px;
+  color: #6a1b9a;
+  margin-bottom: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px 16px 14px 16px;
+  border-radius: 10px;
+  border: 2px solid #e8d4f1;
+  font-size: 15px;
+  font-family: "CentraNo2", sans-serif;
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+.input-group input::placeholder {
+  color: #b39ddb;
+  font-weight: 400;
+}
+
+.input-group input:hover {
+  border-color: #ce93d8;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.input-group input:focus {
+  border-color: #9c27b0;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 4px rgba(156, 39, 176, 0.1);
+}
+
+#password {
+  padding-right: 50px;
+}
+
+/* Botón de inicio de sesión */
+#passwordbutton {
+  background: linear-gradient(135deg, #9f2cbe 0%, #c337ff 100%);
+  color: white;
+  padding: 14px 42px;
+  width: auto;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 20px rgba(159, 44, 190, 0.3);
+  text-transform: uppercase;
+  display: block;
+  margin: 8px auto 0;
+  font-family: "CentraNo2", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+#passwordbutton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+#passwordbutton:hover {
+  background: linear-gradient(135deg, #c337ff 0%, #e040fb 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(159, 44, 190, 0.4);
+}
+
+#passwordbutton:hover::before {
+  left: 100%;
+}
+
+#passwordbutton:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(159, 44, 190, 0.3);
+}
+
+/* Botón de mostrar/ocultar contraseña */
+#toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 15%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#toggle-password:hover {
+  background-color: rgba(156, 39, 176, 0.08);
+  transform: translateY(-50%) scale(1.1);
+}
+
+#toggle-password:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+#iconeye {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  object-fit: contain;
+}
+
+#toggle-password:hover #iconeye {
+  filter: brightness(0.8);
+}
+
+/* Mensaje de error */
+.danger {
+  color: #d32f2f;
+  background-color: rgba(211, 47, 47, 0.08);
+  border: 1px solid rgba(211, 47, 47, 0.3);
+  font-size: 14px;
+  text-align: center;
+  margin-top: 16px;
+  padding: 12px 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  line-height: 1.5;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.swal2-cancel {
+  background-color: red;
+}
+/* Barra lateral */
+.sidebar {
+  height: calc(100vh - 58px);
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  background-color: #ce52ff;
+  transition: left 0.3s ease-in-out;
+  padding-top: 10px;
+  z-index: 1000;
+  box-shadow: 10px 0 8px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  padding-bottom: 100px;
+}
+
+.sidebar.show {
+  left: 0;
+}
+
+.sidebar .menu-item {
+  color: #000000;
+  background-color: #fff;
+  padding: 18px 20px;
+  margin-top: 10px;
+  margin-left: 25px;
+  text-align: left;
+  width: 80%;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s ease;
+}
+
+.sidebar .menu-item:hover {
+  background-color: #7b1fa2;
+  color: white;
+  transform: translateX(5px);
+}
+
+/* Icono de la barra lateral */
+.show-sidebar-button {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  font-size: 28px;
+  background-color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  z-index: 2000;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.show-sidebar-button:hover {
+  color: #9c27b0;
+  transform: rotate(180deg);
+  background-color: #ececec;
+}
+
+.logo-slidebar {
+  margin-left: 18%;
+  width: 180px;
+}
+
+/* Textos Slidebar */
+.sidebar p {
+  text-align: center;
+  font-size: 15px;
+  margin-top: 20px;
+  margin-bottom: -10px;
+  font-weight: bold;
+  color: #000000;
+}
+
+/* Textos Slidebar */
+.sidebar-user {
+  position: relative;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* Tarjeta principal */
+.homepage-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 5px 5px 15px rgb(0, 0, 0);
+  padding: 15px;
+  margin-left: 100px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  transition: 0.2s;
+}
+
+.homepage-card:hover {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+}
+
+.filters-container,
+.filters {
+  top: 0px;
+  display: flex;
+  flex-wrap: nowrap; /* Mantiene los elementos en una sola línea */
+  gap: 10px;
+  margin-bottom: 10px;
+  overflow-x: auto; /* Permite scroll horizontal si los elementos exceden el ancho */
+}
+
+/* Contenedor para un custom select */
+.custom-select-container {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Estilos comunes para los botones de acción y filtro */
+.filter-button,
+.discard-filter-button,
+.create-facture-button,
+.create-table-button,
+.delete-button,
+.filter-button.reset-button {
+  flex: 0 0 auto; /* Evita que se estiren o se reduzcan automáticamente */
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  min-width: 80px; /* Ancho mínimo para legibilidad */
+}
+
+/* Fecha */
+.current-date {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  text-align: left;
+  margin-left: 16px;
+}
+
+.current-date:hover {
+  transition: transform 0.2s ease, color 0.3s ease;
+  color: #9c27b0;
+}
+
+/* Botón para crear tabla */
+.create-table-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  font-weight: bold;
+}
+
+.create-table-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.create-table-button:active {
+  transform: scale(1);
+}
+
+.create-facture-button {
+  background-color: #008cff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  font-weight: bold;
+}
+
+.create-facture-button:hover {
+  background-color: #0272ce;
+  transform: scale(1.05);
+}
+
+.create-facture-button:active {
+  transform: scale(1);
+}
+
+.title-page {
+  color: #000000;
+  text-align: center;
+  margin-bottom: -50px;
+}
+
+/* Tabla */
+.table-container {
+  -webkit-overflow-scrolling: touch;
+  padding: 15px;
+  background-color: #f3e5f5;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border-top: 3px solid #7b1fa2;
+  animation: fadeIn 1s ease-out;
+  display: block;
+  margin: 0;
+  margin-top: 15px;
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: auto;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.table-container table {
+  border-collapse: collapse;
+  font-size: 20px;
+  table-layout: fixed;
+}
+
+thead tr {
+  position: sticky;
+  top: -4%;
+  left: -4%;
+  background-color: #fff;
+  z-index: 1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+
+tr {
+  white-space: nowrap; /* Mantiene las frases en una sola línea */
+}
+
+th,
+td {
+  padding: 8px 6px;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+th {
+  background-color: #9c27b0;
+  color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+}
+
+td {
+  text-align: left;
+  background-color: #f9f9f9;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+  color: #000000;
+  font-size: 15px;
+}
+
+td input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #f9f9f9;
+  font-size: 12px;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+td input:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.3);
+  outline: none;
+}
+
+td input:invalid {
+  border-color: #dc3545;
+}
+
+select {
+  width: 100%;
+  padding: 9px;
+  border: 1px solid #f9f9f9;
+  background-color: #f9f9f9;
+  font-size: 12px;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+select:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.3);
+  outline: none;
+}
+
+option {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #9c27b0;
+  border-radius: 6px;
+  background-color: #fff;
+  font-size: 12px;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.box-fixed-th {
+  position: sticky;
+  top: -11%;
+  left: -16px;
+  background-color: #9c27b0;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.box-fixed-td {
+  position: sticky;
+  top: 0; /* Ajusta a 0 o un valor positivo */
+  left: -16px; /* Ajusta a 0 o un valor positivo */
+  background-color: #ede7f6;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+/* Estilos adicionales si es necesario */
+table.service-table td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+table.service-table input,
+table.service-table select {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+#swal-input9 {
+  margin-top: 20px;
+  border: 1px solid rgb(209, 209, 209);
+  font-size: 20px;
+  color: #6d6d6d;
+  width: 400px !important;
+  height: 45px !important;
+}
+
+/* Styles for the filters container */ 
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+}
+
+/* Styles for the filter button */
+.filter-button {
+  background-color: #9c27b0;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.filter-button:hover {
+  background-color: #7b1fa2;
+  transform: scale(1.05);
+}
+
+.filters-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between; /* Distribuye los elementos de manera uniforme */
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  max-width: 100%; /* Asegura que no exceda el ancho disponible */
+  overflow: visible; /* Evita que los elementos internos se corten */
+  position: relative; /* Necesario para manejar el z-index de elementos */
+}
+
+.filters-container .datepicker-container {
+  position: relative;
+  z-index: 900;
+}
+
+/* Styles for the datepicker container */
+.datepicker-container {
+  position: relative;
+  display: inline-block;
+}
+
+.react-datepicker {
+  position: fixed !important;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  margin-top: 20px;
+  z-index: 9999 !important;
+}
+
+.react-datepicker__header {
+  background-color: #9c27b0; /* Purple */
+  color: #fff;
+  border-bottom: 1px solid #9c27b0;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.react-datepicker__day--selected {
+  background-color: #9c27b0; /* Purple 500 */
+  color: white;
+}
+
+.react-datepicker__day:hover {
+  background-color: #7b1fa2; /* Purple 700 */
+  color: white;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #d1c4e9; /* Light purple */
+  color: #000;
+}
+
+.calendar-input {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #fff;
+  width: 150px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.discard-filter-button {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  font-weight: bold;
+}
+
+.discard-filter-button:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+/* Styles for the dropdown */
+.dropdown {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #495057;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.dropdown:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Option styles */
+.dropdown option {
+  color: #495057;
+  background-color: #fff;
+}
+
+.tdth-table {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Estilo para los botones */
+button.delete-button {
+  background-color: #ff6347;
+  color: #fff;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 15px;
+  border: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button.delete-button:hover {
+  background-color: #ff3300;
+}
+
+#delete-button-fechas {
+  margin-left: 6%;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+.delete-button:active {
+  background-color: #bd2130;
+  transform: scale(1);
+}
+
+.show-password-button {
+  margin-left: 10px;
+  background-color: #4763ff;
+  color: #fff;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 15px;
+  border: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.show-password-button:hover {
+  background-color: #2980b9; /* Cambio de color al pasar el cursor */
+  transform: scale(1.05); /* Efecto de agrandamiento suave */
+}
+
+.show-password-button:active {
+  transform: scale(0.95); /* Efecto al presionar el botón */
+}
+
+.custom-select-input,
+select,
+input {
+  width: 100% !important; /* Mantiene un ancho uniforme */
+}
+
+.custom-filter-input {
+  width: 100% !important;
+}
+
+/* 📱 Estilos para móviles en modo vertical */
+@media (max-width: 480px) {
+  body {
+    display: flex;
+    flex-direction: row; /* Cambiado a fila para orientación vertical */
+    align-items: flex-start; /* Alinea los elementos al inicio */
+    padding: 10px;
+    overflow-x: auto; /* Permite el scroll horizontal */
+    overflow-y: hidden; /* Evita el desbordamiento vertical */
+    scroll-behavior: smooth;
+    width: 100vw; /* Asegura que el contenido ocupe el ancho completo */
+    height: auto; /* La altura se ajusta al contenido */
+  }
+
+  .homepage-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 5px 5px 15px rgb(0, 0, 0);
+    padding: 10px;
+    margin: 20px;
+    height: 95%; /* Ocupa casi toda la altura disponible */
+    max-height: 600px;
+    max-width: 320px; /* Restringe el ancho para orientación vertical */
+    transition: margin-top 0.3s ease-in-out, box-shadow 0.3s ease;
+    animation: fadeIn 1s ease-out;
+    overflow: visible;
+    margin-top: 60px;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    overflow-y: auto;
+    touch-action: manipulation;
+    height: 10%;
+    max-height: 150%;
+    width: 320px;
+    max-width: none;
+    margin: 0 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    height: calc(
+      420px - 10px
+    );
+    margin: 20px 0;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+  }
+
+  /* Fecha */
+  .current-date {
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    text-align: left;
+    margin-left: 16px;
+    margin-top: 10px;
+  }
+
+  .current-date:hover {
+    transition: transform 0.2s ease, color 0.3s ease;
+    color: #9c27b0;
+  }
+
+  .title-page {
+    color: #000000;
+    text-align: center;
+    margin-bottom: -35px;
+    margin-left: 100px;
+    font-size: 20px;
+  }
+
+  .create-table-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    margin-top: 5px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    font-weight: bold;
+    margin-left: 16px;
+  }
+  /*///inicio////*/
+
+  /* Contenedor para el selector de fecha */
+  .datepicker-container {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  /* Contenedores de filtros: se aplican a ambos, .filters-container y .filters */
+  .filters-container,
+  .filters {
+    top: 0px;
+    display: flex;
+    flex-wrap: nowrap; /* Mantiene los elementos en una sola línea */
+    gap: 10px;
+    margin-bottom: 10px;
+    overflow-x: auto; /* Permite scroll horizontal si los elementos exceden el ancho */
+  }
+
+  /* Contenedor para un custom select */
+  .custom-select-container {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  /* Estilos comunes para los botones de acción y filtro */
+  .filter-button,
+  .discard-filter-button,
+  .create-facture-button,
+  .create-table-button,
+  .delete-button,
+  .filter-button.reset-button {
+    flex: 0 0 auto; /* Evita que se estiren o se reduzcan automáticamente */
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    min-width: 80px; /* Ancho mínimo para legibilidad */
+  }
+
+  /* Botón de filtro activo */
+  .filter-button.active {
+    background-color: #005fcc;
+    color: white;
+  }
+
+  /* Botón para descartar filtro */
+  .discard-filter-button {
+    background-color: #f44336;
+    color: white;
+  }
+
+  /* Botón para crear factura */
+  .create-facture-button {
+    background-color: #008cff;
+    color: white;
+    font-weight: bold;
+  }
+
+  /* Botón para crear tabla */
+  .create-table-button {
+    background-color: #28a745; /* Verde para diferenciar */
+    color: white;
+    font-weight: bold;
+  }
+
+  /* Botón para eliminar */
+  .delete-button {
+    background-color: #dc3545; /* Rojo (estilo Bootstrap) */
+    color: white;
+    font-weight: bold;
+  }
+
+  /* Botón de reset en combinación con filter-button */
+  .filter-button.reset-button {
+    background-color: #6c757d; /* Gris para resetear */
+    color: white;
+  }
+
+  /* Ajustes para pantallas muy pequeñas (ej. Galaxy S8+) */
+  @media screen and (max-width: 480px) {
+    .filter-button,
+    .discard-filter-button,
+    .create-facture-button,
+    .create-table-button,
+    .delete-button,
+    .filter-button.reset-button,
+    .swal2-input,
+    .swal2-popup #swal-input9,
+    .filters {
+      padding: 12px 18px;
+      font-size: 13px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      white-space: nowrap;
+    }
+
+    .react-datepicker {
+      margin-top: 50px;
+    }
+
+    .title-page {
+      margin-top: 0px;
+      white-space: nowrap;
+      font-size: 18px;
+    }
+
+    .swal2-popup .swal2-input {
+      width: 250px !important; /* Ajusta el valor según lo que necesites */
+    }
+
+    .current-date {
+      font-size: 15px;
+    }
+
+    .create-facture-button,
+    .create-table-button,
+    .discard-filter-button {
+      margin-right: -15px;
+    }
+
+    .delete-button {
+      margin-left: 15px;
+      min-height: 40px; /* Alternativamente, fuerza una altura mínima */
+    }
+
+    .custom-select-container {
+      padding-top: 10px;
+      padding-bottom: 0px;
+      font-size: 13px;
+    }
+
+    .filters-container {
+      padding-right: 30px;
+      padding-left: 0px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .datepicker-container {
+      padding: 10px 18px;
+      font-size: 13px;
+      margin-top: -15px;
+      margin-bottom: -15px;
+      margin-right: -18px;
+      white-space: nowrap;
+    }
+
+    .react-datepicker {
+      position: fixed !important;
+      top: 150px; /* Ajusta este valor para ubicarlo donde desees */
+      left: 50%; /* Centrado horizontalmente, ajústalo si es necesario */
+      transform: translateX(-50%);
+      z-index: 9999 !important;
+      overflow: visible;
+    }
+
+    .swal2-popup #swal-input9 {
+      width: 250px !important; /* Ajusta el valor según lo que necesites */
+      height: 40px !important;
+      border-radius: 3px;
+    }
+  }
+
+  /*//////final del nuevo///////*/
+
+  .create-facture-button {
+    background-color: #008cff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    font-weight: bold;
+    margin-left: 16px;
+  }
+
+  th {
+    background-color: #9c27b0;
+    color: white;
+    padding: 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  td {
+    padding: 0px;
+    text-align: left;
+    background-color: #f9f9f9;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+    color: #000000;
+  }
+
+  td input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #f9f9f9;
+    font-size: 11px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  td input:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.3);
+    outline: none;
+  }
+
+  td input:invalid {
+    border-color: #dc3545;
+  }
+
+  select {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #f9f9f9;
+    background-color: #f9f9f9;
+    font-size: 10px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  select:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.3);
+    outline: none;
+  }
+
+  option {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #9c27b0;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 10px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .box-fixed-th {
+    position: sticky;
+    top: -11%; /* Ajusta el offset vertical */
+    left: -11px; /* Fija el elemento en el lado izquierdo */
+    background-color: #9c27b0;
+    z-index: 1;
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+  }
+
+  .box-fixed-td {
+    position: sticky;
+    top: -4%; /* Ajusta el offset vertical */
+    left: -11px; /* Fija el elemento en el lado izquierdo */
+    background-color: #ede7f6;
+    z-index: 0;
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+  }
+  .custom-filter-input {
+    margin-right: 100px !important;
+  }
+}
+/* 📱 Estilos para móviles en modo horizontal (landscape) */
+@media (max-width: 1000px) and (orientation: landscape) {
+  .filter-button,
+  .discard-filter-button,
+  .create-facture-button,
+  .create-table-button,
+  .delete-button,
+  .filter-button.reset-button,
+  .swal2-input,
+  .swal2-input9,
+  .swal2-popup #swal-input9,
+  .filters {
+    padding: 12px 18px;
+    font-size: 13px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    white-space: nowrap;
+  }
+  .filters {
+    overflow-x: auto; /* Permite scroll horizontal si los elementos exceden el ancho */
+  }
+
+  .title-page {
+    margin-top: 10px;
+    white-space: nowrap;
+    font-size: 18px;
+  }
+
+  .swal2-popup .swal2-input {
+    width: 250px !important; /* Ajusta el valor según lo que necesites */
+  }
+
+  .swal2-popup #swal-input9 {
+    width: 250px !important; /* Ajusta el valor según lo que necesites */
+    height: 40px !important;
+    border-radius: 3px;
+  }
+
+  .current-date {
+    font-size: 15px;
+  }
+
+  .create-facture-button,
+  .create-table-button,
+  .discard-filter-button {
+    margin-right: -15px;
+  }
+
+  .delete-button {
+    margin-left: 15px;
+    min-height: 40px; /* Alternativamente, fuerza una altura mínima */
+  }
+
+  .swal2-input {
+    border-color: #cacaca;
+  }
+
+  .react-datepicker {
+    margin-top: -86px;
+  }
+
+  .filters-container {
+    padding-right: 30px;
+    padding-left: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .datepicker-container {
+    padding: 10px 18px;
+    font-size: 13px;
+    margin-top: -15px;
+    margin-bottom: -15px;
+    margin-right: -18px;
+    white-space: nowrap;
+  }
+
+  .react-datepicker {
+    position: fixed !important;
+    top: 150px; /* Ajusta este valor para ubicarlo donde desees */
+    left: 50%; /* Centrado horizontalmente, ajústalo si es necesario */
+    transform: translateX(-50%);
+    z-index: 9999 !important;
+    overflow: visible;
+  }
+
+  thead tr {
+    top: -11%;
+  }
+
+  .box-fixed-th {
+    position: sticky;
+    top: -11%; /* Ajusta el offset vertical */
+    left: -10px; /* Fija el elemento en el lado izquierdo */
+    background-color: #9c27b0;
+    z-index: 1;
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+  }
+
+  .box-fixed-td {
+    position: sticky;
+    top: -4%; /* Ajusta el offset vertical */
+    left: -11px; /* Fija el elemento en el lado izquierdo */
+    background-color: #ede7f6;
+    z-index: 0;
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+  }
+  .custom-filter-input {
+    margin-right: 100px !important;
+  }
+
+  /*//// final del nuevo horizontal///////*/
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    overflow-y: auto; /* Permite el scroll vertical */
+    overflow-x: hidden; /* Evita el desbordamiento lateral */
+    scroll-behavior: smooth; /* Hace que el desplazamiento sea más suave */
+    height: 100vh; /* Asegura que el contenido no quede fijo en la pantalla */
+  }
+
+  .homepage-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 5px 5px 15px rgb(0, 0, 0);
+    padding: 10px;
+    margin: 20px auto;
+    width: 95%;
+    max-width: 600px;
+    max-height: 320px; /* Eliminamos la restricción de altura para que el contenido pueda expandirse */
+    transition: margin-left 0.3s ease-in-out, box-shadow 0.3s ease;
+    animation: fadeIn 1s ease-out;
+    overflow: visible; /* Permitimos que el contenido interno crezca si es necesario */
+  }
+
+  .table-container {
+    overflow-x: auto;
+    overflow-y: auto;
+    touch-action: manipulation;
+    width: 100%;
+    max-width: 100%;
+    height: 700vh;
+    max-height: 400x;
+    margin: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    height: calc(
+      450px - 290px
+    );
+    margin: 20px 0;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+  }
+
+  /* Manteniendo los demás estilos iguales */
+  .current-date {
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    text-align: left;
+    margin-left: 16px;
+    margin-top: 10px;
+  }
+
+  .current-date:hover {
+    transition: transform 0.2s ease, color 0.3s ease;
+    color: #9c27b0;
+  }
+
+  .title-page {
+    color: #000000;
+    text-align: center;
+    margin-bottom: -50px;
+    margin-left: 0;
+    font-size: 20px;
+  }
+
+  .table-container table {
+    border-collapse: collapse;
+    border-radius: 8px;
+    table-layout: fixed;
+  }
+
+  th {
+    background-color: #9c27b0;
+    color: white;
+    padding: 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: left; /* Alinea el texto a la izquierda para que las frases sean rectas */
+    font-weight: bold;
+    white-space: nowrap; /* Mantiene las frases en una sola línea */
+  }
+
+  td {
+    padding: 0px;
+    text-align: left;
+    background-color: #f9f9f9;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+    color: #000000;
+  }
+
+  td input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #f9f9f9;
+    font-size: 11px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  td input:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.3);
+    outline: none;
+  }
+
+  td input:invalid {
+    border-color: #dc3545;
+  }
+
+  select {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #f9f9f9;
+    background-color: #f9f9f9;
+    font-size: 10px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  select:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.3);
+    outline: none;
+  }
+
+  option {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #9c27b0;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 10px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+}
+
+/*///////////////////////////colores////////////////////////////////*/
+
+td {
+  background-color: #ede7f6; /* Purple Light */
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+  color: black; /* Purple 900 */
+}
+
+.option {
+  border: 2px solid #9c27b0; /* Purple 500 */
+  background-color: #f3e5f5; /* Purple 50 */
+}
